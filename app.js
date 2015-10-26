@@ -8,30 +8,11 @@
 
     function Calculator() {
         this.expression = '';
-        this.operation = false;
     }
 
     Calculator.prototype = {
         makeExpression: function (input) {
-
-            /*if (!this.operation) {
-
-             if (isNaN(input) && input !== '.') {
-             this.operation = true;
-             console.log(this.expression);
-             } else {
-             this.expression += input;
-             }
-             } else {
-             if (isNaN(input) && input !== '.') {
-             this.calculate(this.expression);
-             this.expression += input;
-             this.operation = false;
-             } else {
-             this.expression += input;
-             }
-             }*/
-
+            console.log('inp', input);
             if (!this.expression) {
                 if (input === 'C') {
                     output.text('0');
@@ -40,12 +21,9 @@
                     output.text(this.expression);
                 }
             } else {
-                if (isNaN(this.expression[this.expression.length - 1]) && isNaN(input)) {
-                    this.expression[this.expression.length - 1] = input;
-                    output.text(this.expression);
-                } else if (input === '=') {
-                    this.calculate();
-                    this.expression = '';
+                if (input === 'sqrt') {
+                    console.log('case sqrt')
+                    this.squareRoot();
                 } else if (input === 'C') {
                     this.expression = '';
                     output.text('0');
@@ -54,17 +32,24 @@
                         this.expression = this.expression.substring(0, this.expression.length - 1);
                         output.text(this.expression);
                     }
-                }
-                else {
+                } else if (isNaN(this.expression[this.expression.length - 1]) && isNaN(input)) {
+                    console.log('case one')
+                    this.expression[this.expression.length - 1] = input;
+                    output.text(this.expression);
+                } else if (input === '=') {
+                    this.calculate();
+                    this.expression = '';
+                } else {
                     this.expression += input;
                     output.text(this.expression);
                 }
-
             }
-            console.log('res', this.expression)
-            return this.expression;
         },
+        squareRoot: function () {
+            this.expression = Math.sqrt(this.expression);
+            output.text(this.expression);
 
+        },
         calculate: function () {
             this.expression = eval(this.expression);
             output.text(this.expression);
