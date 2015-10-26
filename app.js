@@ -46,8 +46,10 @@
     };
 
     Calculator.prototype.squareRoot = function () {
-        this.expression = Math.sqrt(eval(this.expression));
+        eval(this.expression);
+        this.expression = Math.sqrt(this.expression);
         output.text(this.expression);
+        this.expression = '';
     };
 
     Calculator.prototype.calculate = function () {
