@@ -22,7 +22,7 @@
                 }
             } else {
                 if (input === 'sqrt') {
-                    console.log('case sqrt')
+                    console.log('case sqrt');
                     this.squareRoot();
                 } else if (input === 'C') {
                     this.expression = '';
@@ -33,7 +33,7 @@
                         output.text(this.expression);
                     }
                 } else if (isNaN(this.expression[this.expression.length - 1]) && isNaN(input)) {
-                    console.log('case one')
+                    console.log('case one');
                     this.expression[this.expression.length - 1] = input;
                     output.text(this.expression);
                 } else if (input === '=') {
