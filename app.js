@@ -16,7 +16,7 @@
             if (!this.expression) {
                 if (input === 'C') {
                     output.text('0');
-                } else if (!isNaN(input)) {
+                } else if (!isNaN(input) || input ==='-') {
                     this.expression += input;
                     output.text(this.expression);
                 }
@@ -48,7 +48,6 @@
         squareRoot: function () {
             this.expression = Math.sqrt(this.expression);
             output.text(this.expression);
-
         },
         calculate: function () {
             this.expression = eval(this.expression);
