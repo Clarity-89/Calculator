@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -29,8 +30,20 @@ input[type='button'] {
     text-align: center;
 }
 
-@media (min-width: 768px){
+@media (min-width: 768px) {
     h1 {
         margin-right: 100px;
     }
+
+    footer {
+        right: 60px;
+    }
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-weight: 500;
+    font-size: 16px;
 }
