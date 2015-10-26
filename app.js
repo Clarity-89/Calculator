@@ -46,7 +46,7 @@
             }
         },
         squareRoot: function () {
-            this.expression = Math.sqrt(this.expression);
+            this.expression = Math.sqrt(eval(this.expression));
             output.text(this.expression);
         },
         calculate: function () {
