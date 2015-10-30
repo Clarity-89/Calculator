@@ -47,3 +47,9 @@ footer {
     font-weight: 500;
     font-size: 16px;
 }
+
+@media (max-width: 768px) {
+    footer {
+        position: relative;
+    }
+}
